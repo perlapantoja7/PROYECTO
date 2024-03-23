@@ -1,3 +1,7 @@
+<?php
+   session_start();
+?>
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -16,7 +20,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="Vistas/css/adminlte.min.css">
 </head>
-<body class="hold-transition sidebar-mini">
+
+  <?php
+    if(isset($_SESSION["ingreso"]) && $_SESSION["ingreso"]==true)
+    {
+  ?>
+  <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 <?php 
   include "Vistas/modulos/encabezado.php";
@@ -42,7 +51,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 ?>
 </div>
 <!-- ./content-wrapper -->
-
+<?php
+}
+ else
+ {
+ include "Vistas/modulos/ingreso.php";
+ }
+?>
 
 <!-- REQUIRED SCRIPTS -->
 
